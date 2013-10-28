@@ -1,0 +1,14 @@
+body {
+    background-image: url('http://i.imgur.com/FwuI6fi.jpg');
+    background-position: center center;
+}
+
+.main {
+    position: relative;
+}
+.alert-over {
+    position: absolute;
+    top: 80px;
+    z-index: 10;
+    opacity: 0.8;
+}
