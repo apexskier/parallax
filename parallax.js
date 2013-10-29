@@ -158,7 +158,7 @@
                     break;
             }
         }
-        // accelleration data
+        // acceleration data
         /*window.addEventListener('MozOrientation', function(e) {
             window.parallax.device.x = e.x;
             window.parallax.device.y = e.y;
@@ -187,8 +187,10 @@
         orientate();
     })();
 
-    (function animloop() {
-        requestAnimationFrame(animloop);
-        window.parallax.render();
-    })();
+    if (window.DeviceOrientationEvent) {
+        (function animloop() {
+            requestAnimationFrame(animloop);
+            window.parallax.render();
+        })();
+    }
 })();
