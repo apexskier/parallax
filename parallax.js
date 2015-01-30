@@ -53,7 +53,7 @@
             window.parallax.calibration.gamma = ((window.parallax.calibration.gamma * 31) + window.parallax.device.gamma) / 32;
         },
         render: function() {
-            adjustCalibration();
+            //adjustCalibration();
 
             $('.parallax').each(function() {
                 var dist = parseFloat($(this).data('parallax'));
