@@ -42,7 +42,19 @@
         debug: true,
         distance: 5,
         transform: {},
+        adjustCalibration: function() {
+            window.parallax.calibration.alpha =
+                ((window.parallax.calibration.alpha * 31) +
+                 (window.parallax.device.alpha > 180 ? window.parallax.device.alpha - 360 : window.parallax.device.alpha)
+                ) / 32;
+            window.parallax.calibration.alpha =
+                window.parallax.calibration.alpha > 180 ? window.parallax.calibration.alpha - 360 : window.parallax.calibration.alpha;
+            window.parallax.calibration.beta = ((window.parallax.calibration.beta * 31) + window.parallax.device.beta) / 32;
+            window.parallax.calibration.gamma = ((window.parallax.calibration.gamma * 31) + window.parallax.device.gamma) / 32;
+        },
         render: function() {
+            adjustCalibration();
+
             $('.parallax').each(function() {
                 var dist = parseFloat($(this).data('parallax'));
                 $(this).css({
